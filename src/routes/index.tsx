@@ -85,8 +85,9 @@ function Home() {
             alt="Croquis d'architecture sur papier"
             width={1920}
             height={768}
-            className="h-[380px] w-full object-cover md:h-[440px]"
+            className="h-[380px] w-full object-cover saturate-[0.55] md:h-[440px]"
           />
+          <span className="pointer-events-none absolute inset-0 bg-[oklch(0.7364_0.0354_81.93/25%)]" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
             <Brackets>
               <div className="bg-background/70 px-10 py-6 backdrop-blur-[2px]">
