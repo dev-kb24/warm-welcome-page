@@ -4,8 +4,8 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
 import logoAsset from "@/assets/ms-logo.png.asset.json";
-import proAsset from "@/assets/ms-pro.jpg.asset.json";
-import partAsset from "@/assets/ms-part.jpg.asset.json";
+import catPro from "@/assets/cat-pro.jpg";
+import catPart from "@/assets/cat-part.jpg";
 import portraitAsset from "@/assets/ms-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -123,13 +123,13 @@ function Home() {
         <div className="mt-16 flex flex-col items-center justify-center gap-14 sm:flex-row sm:gap-16">
           <CategoryCard
             id="professionnels"
-            src={proAsset.url}
+            src={catPro}
             label="PROFESSIONNELS"
             alt="Bureau professionnel aménagé"
           />
           <CategoryCard
             id="particuliers"
-            src={partAsset.url}
+            src={catPart}
             label="PARTICULIERS"
             alt="Salon particulier aménagé"
           />
@@ -348,8 +348,8 @@ function CategoryCard({
             src={src}
             alt={alt}
             loading="lazy"
-            width={672}
-            height={313}
+            width={1100}
+            height={512}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <span className="absolute inset-0 bg-[oklch(0_0_0/60%)] opacity-70 transition-opacity group-hover:opacity-50" />
