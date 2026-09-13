@@ -1,9 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
+import { Brackets, Footer, Header } from "@/components/site";
 import heroBg from "@/assets/hero-bg.jpg";
-import logo from "@/assets/ms-logo.png";
 import catPro from "@/assets/cat-pro.jpg";
 import catPart from "@/assets/cat-part.jpg";
 import portrait from "@/assets/ms-portrait.jpg";
@@ -30,52 +29,10 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const NAV = [
-  { label: "À propos", href: "#a-propos" },
-  { label: "Contact", href: "#contact" },
-  { label: "Particuliers", href: "#particuliers" },
-  { label: "Professionnels", href: "#professionnels" },
-];
-
-function Brackets({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="relative">
-      <span className="pointer-events-none absolute -left-4 -top-4 h-8 w-8 border-l border-t border-sand" />
-      <span className="pointer-events-none absolute -right-4 -top-4 h-8 w-8 border-r border-t border-sand" />
-      <span className="pointer-events-none absolute -bottom-4 -left-4 h-8 w-8 border-b border-l border-sand" />
-      <span className="pointer-events-none absolute -bottom-4 -right-4 h-8 w-8 border-b border-r border-sand" />
-      {children}
-    </div>
-  );
-}
-
 function Home() {
-  const [active, setActive] = useState<string | null>(null);
-
   return (
     <div className="min-h-screen bg-background text-ink">
-      {/* Header */}
-      <header className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6 py-6">
-        <nav className="order-2 flex flex-1 justify-center gap-2 md:order-1 md:justify-end">
-          {NAV.slice(0, 2).map((item) => (
-            <NavLink key={item.href} item={item} active={active} setActive={setActive} />
-          ))}
-        </nav>
-        <a href="#top" className="order-1 md:order-2">
-          <img
-            src={logo}
-            alt="MS Reflect"
-            width={140}
-            height={90}
-            className="h-16 w-auto"
-          />
-        </a>
-        <nav className="order-3 flex flex-1 justify-center gap-2 md:justify-start">
-          {NAV.slice(2).map((item) => (
-            <NavLink key={item.href} item={item} active={active} setActive={setActive} />
-          ))}
-        </nav>
-      </header>
+      <Header />
 
       {/* Hero */}
       <section id="top" className="mx-auto max-w-5xl px-6">
@@ -127,12 +84,14 @@ function Home() {
             src={catPro}
             label="PROFESSIONNELS"
             alt="Bureau professionnel aménagé"
+            href="#contact"
           />
           <CategoryCard
             id="particuliers"
             src={catPart}
             label="PARTICULIERS"
             alt="Salon particulier aménagé"
+            href="/particuliers"
           />
         </div>
       </section>
@@ -179,8 +138,8 @@ function Home() {
             src={portrait}
             alt="Portrait de Mathilde Staels, designer d'espace"
             loading="lazy"
-            width={246}
-            height={248}
+            width={382}
+            height={384}
             className="h-56 w-44 shrink-0 object-cover"
           />
           <div className="space-y-6 text-sm leading-relaxed text-ink-soft md:text-base">
@@ -274,39 +233,8 @@ function Home() {
         </form>
       </section>
 
-      <footer className="border-t border-border py-6 text-center text-xs text-sand">
-        <a href="#contact" className="hover:text-clay">
-          mentions légales
-        </a>
-        <span className="px-2">|</span>
-        <a href="#contact" className="hover:text-clay">
-          politique de confidentialité
-        </a>
-      </footer>
+      <Footer />
     </div>
-  );
-}
-
-function NavLink({
-  item,
-  active,
-  setActive,
-}: {
-  item: { label: string; href: string };
-  active: string | null;
-  setActive: (v: string) => void;
-}) {
-  const isActive = active === item.href;
-  return (
-    <a
-      href={item.href}
-      onClick={() => setActive(item.href)}
-      className={`px-3 py-1.5 text-sm tracking-wide transition-colors ${
-        isActive ? "bg-clay text-primary-foreground" : "text-ink-soft hover:text-clay"
-      }`}
-    >
-      {item.label}
-    </a>
   );
 }
 
@@ -335,30 +263,43 @@ function CategoryCard({
   src,
   label,
   alt,
+  href,
 }: {
   id: string;
   src: string;
   label: string;
   alt: string;
+  href: string;
 }) {
+  const inner = (
+    <Brackets>
+      <div className="relative h-40 w-72 overflow-hidden">
+        <img
+          src={src}
+          alt={alt}
+          loading="lazy"
+          width={1100}
+          height={512}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <span className="absolute inset-0 bg-[oklch(0_0_0/60%)] opacity-70 transition-opacity group-hover:opacity-50" />
+        <span className="absolute inset-0 flex items-center justify-center text-sm tracking-[0.2em] text-primary-foreground">
+          {label}
+        </span>
+      </div>
+    </Brackets>
+  );
+
+  if (href.startsWith("/")) {
+    return (
+      <Link id={id} to={href} className="group block">
+        {inner}
+      </Link>
+    );
+  }
   return (
-    <a id={id} href="#contact" className="group block">
-      <Brackets>
-        <div className="relative h-40 w-72 overflow-hidden">
-          <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            width={1100}
-            height={512}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <span className="absolute inset-0 bg-[oklch(0_0_0/60%)] opacity-70 transition-opacity group-hover:opacity-50" />
-          <span className="absolute inset-0 flex items-center justify-center text-sm tracking-[0.2em] text-primary-foreground">
-            {label}
-          </span>
-        </div>
-      </Brackets>
+    <a id={id} href={href} className="group block">
+      {inner}
     </a>
   );
 }
