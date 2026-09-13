@@ -63,7 +63,7 @@ function Home() {
         </nav>
         <a href="#top" className="order-1 md:order-2">
           <img
-            src={logoAsset.url}
+            src={logo}
             alt="MS Reflect"
             width={140}
             height={90}
@@ -176,7 +176,7 @@ function Home() {
 
         <div className="mt-10 flex flex-col gap-10 sm:flex-row">
           <img
-            src={portraitAsset.url}
+            src={portrait}
             alt="Portrait de Mathilde Staels, designer d'espace"
             loading="lazy"
             width={246}
