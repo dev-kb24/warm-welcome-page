@@ -84,7 +84,7 @@ function Home() {
             src={catPro}
             label="PROFESSIONNELS"
             alt="Bureau professionnel aménagé"
-            href="#contact"
+            href="/professionnels"
           />
           <CategoryCard
             id="particuliers"

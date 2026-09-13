@@ -7,7 +7,7 @@ export const NAV = [
   { label: "À propos", href: "/#a-propos" },
   { label: "Contact", href: "/#contact" },
   { label: "Particuliers", href: "/particuliers" },
-  { label: "Professionnels", href: "/#professionnels" },
+  { label: "Professionnels", href: "/professionnels" },
 ];
 
 export function Brackets({ children }: { children: ReactNode }) {
