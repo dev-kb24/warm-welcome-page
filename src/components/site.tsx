@@ -42,7 +42,7 @@ export function Header({ active }: { active?: string }) {
   );
 }
 
-function NavLink({ item, active }: { item: { label: string; href: string }; active?: string }) {
+function NavLink({ item, active }: { item: { label: string; href: string }; active?: string | undefined }) {
   const isActive = active === item.href;
   return (
     <a
