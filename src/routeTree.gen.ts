@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ParticuliersRouteImport } from './routes/particuliers'
+import { Route as ProfessionnelsRouteImport } from './routes/professionnels'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const ParticuliersRoute = ParticuliersRouteImport.update({
   path: '/particuliers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfessionnelsRoute = ProfessionnelsRouteImport.update({
+  id: '/professionnels',
+  path: '/professionnels',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
+  '/professionnels': typeof ProfessionnelsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
+  '/professionnels': typeof ProfessionnelsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
+  '/professionnels': typeof ProfessionnelsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/particuliers'
+  fullPaths: '/' | '/particuliers' | '/professionnels'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/particuliers'
-  id: '__root__' | '/' | '/particuliers'
+  to: '/' | '/particuliers' | '/professionnels'
+  id: '__root__' | '/' | '/particuliers' | '/professionnels'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ParticuliersRoute: typeof ParticuliersRoute
+  ProfessionnelsRoute: typeof ProfessionnelsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ParticuliersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/professionnels': {
+      id: '/professionnels'
+      path: '/professionnels'
+      fullPath: '/professionnels'
+      preLoaderRoute: typeof ProfessionnelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ParticuliersRoute: ParticuliersRoute,
+  ProfessionnelsRoute: ProfessionnelsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
