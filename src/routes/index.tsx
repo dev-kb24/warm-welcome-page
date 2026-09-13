@@ -3,10 +3,10 @@ import { useState } from "react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 import heroBg from "@/assets/hero-bg.jpg";
-import logoAsset from "@/assets/ms-logo.png.asset.json";
+import logo from "@/assets/ms-logo.png";
 import catPro from "@/assets/cat-pro.jpg";
 import catPart from "@/assets/cat-part.jpg";
-import portraitAsset from "@/assets/ms-portrait.jpg.asset.json";
+import portrait from "@/assets/ms-portrait.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
