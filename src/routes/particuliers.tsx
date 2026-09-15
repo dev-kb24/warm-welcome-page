@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { Brackets, Footer, Header } from "@/components/site";
 import partHero from "@/assets/part-hero.jpg";
@@ -115,9 +115,12 @@ function Particuliers() {
             Une palette de couleurs pensée comme un fil conducteur entre les espaces, où chaque
             chambre affirme sa personnalité tout en s'inscrivant dans une harmonie globale.
           </p>
-          <a href="/#contact" className="mt-2 inline-block text-sm text-ink hover:text-clay">
+          <Link
+            to="/projets/maison-famars"
+            className="mt-2 inline-block text-sm text-ink hover:text-clay"
+          >
             ⤷ Voir le projet
-          </a>
+          </Link>
         </div>
 
         <div className="mx-auto mt-20 max-w-2xl text-center">

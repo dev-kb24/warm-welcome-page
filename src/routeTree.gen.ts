@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ParticuliersRouteImport } from './routes/particuliers'
 import { Route as ProfessionnelsRouteImport } from './routes/professionnels'
+import { Route as ProjetsMaisonFamarsRouteImport } from './routes/projets.maison-famars'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,50 @@ const ProfessionnelsRoute = ProfessionnelsRouteImport.update({
   path: '/professionnels',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjetsMaisonFamarsRoute = ProjetsMaisonFamarsRouteImport.update({
+  id: '/projets/maison-famars',
+  path: '/projets/maison-famars',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/particuliers' | '/professionnels'
+  fullPaths:
+    '/' | '/particuliers' | '/professionnels' | '/projets/maison-famars'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/particuliers' | '/professionnels'
-  id: '__root__' | '/' | '/particuliers' | '/professionnels'
+  to: '/' | '/particuliers' | '/professionnels' | '/projets/maison-famars'
+  id:
+    | '__root__'
+    | '/'
+    | '/particuliers'
+    | '/professionnels'
+    | '/projets/maison-famars'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ParticuliersRoute: typeof ParticuliersRoute
   ProfessionnelsRoute: typeof ProfessionnelsRoute
+  ProjetsMaisonFamarsRoute: typeof ProjetsMaisonFamarsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +98,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfessionnelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projets/maison-famars': {
+      id: '/projets/maison-famars'
+      path: '/projets/maison-famars'
+      fullPath: '/projets/maison-famars'
+      preLoaderRoute: typeof ProjetsMaisonFamarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +112,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ParticuliersRoute: ParticuliersRoute,
   ProfessionnelsRoute: ProfessionnelsRoute,
+  ProjetsMaisonFamarsRoute: ProjetsMaisonFamarsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
