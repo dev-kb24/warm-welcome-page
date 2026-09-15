@@ -135,7 +135,7 @@ function MaisonFamars() {
             before={corailAvant}
             after={corailApres}
             alt="Chambre terracotta"
-            className="aspect-[4/3] w-full"
+            className="aspect-[3/4] w-full"
           />
           <div className="grid gap-6">
             <img
