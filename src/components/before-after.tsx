@@ -58,10 +58,10 @@ export function BeforeAfter({
         />
       </div>
 
-      <span className="pointer-events-none absolute left-3 top-3 bg-[oklch(0_0_0/60%)] px-2 py-0.5 text-[11px] tracking-wide text-primary-foreground">
+      <span className="pointer-events-none absolute left-3 top-3 bg-overlay px-2 py-0.5 text-[11px] font-bold text-primary-foreground">
         AVANT
       </span>
-      <span className="pointer-events-none absolute right-3 top-3 bg-[oklch(0_0_0/60%)] px-2 py-0.5 text-[11px] tracking-wide text-primary-foreground">
+      <span className="pointer-events-none absolute right-3 top-3 bg-overlay px-2 py-0.5 text-[11px] font-bold text-primary-foreground">
         APRÈS
       </span>
 
@@ -72,7 +72,7 @@ export function BeforeAfter({
       <button
         type="button"
         aria-label={`Comparer avant / après : ${alt}`}
-        className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full bg-background text-sm text-ink shadow-[0_1px_8px_oklch(0_0_0/30%)]"
+        className="absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 cursor-ew-resize items-center justify-center rounded-full bg-background text-sm text-ink shadow-md"
         style={{ left: `${pos}%` }}
         onKeyDown={(e) => {
           if (e.key === "ArrowLeft") setPos((p) => Math.max(0, p - 5));

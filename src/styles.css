@@ -63,12 +63,14 @@
   --color-ink-soft: var(--ink-soft);
   --color-sand: var(--sand);
   --color-clay: var(--clay);
+  --color-steel: var(--steel);
+  --color-overlay: var(--overlay-60);
   --font-sans: var(--font-brand);
 }
 
 :root {
   --radius: 0.125rem;
-  --font-brand: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Antenna", "Helvetica Neue", Arial, ui-sans-serif, sans-serif;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.3701 0.015 79.66);
@@ -94,6 +96,7 @@
   --ink-soft: oklch(0.4482 0.0161 97.71);
   --sand: oklch(0.7364 0.0354 81.93);
   --clay: oklch(0.6302 0.03 83.49);
+  --steel: oklch(0.4482 0.0161 97.71);
   --overlay-60: oklch(0 0 0 / 60%);
 
   --chart-1: oklch(0.646 0.222 41.116);
@@ -152,9 +155,15 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    margin: 0;
   }
 }
 
@@ -162,9 +171,41 @@
   body {
     font-family: var(--font-brand);
     font-weight: 300;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
   }
   h1, h2, h3, h4 {
     font-weight: 300;
   }
+
+  strong,
+  b,
+  .font-medium,
+  .font-semibold,
+  .font-bold {
+    font-weight: 700;
+  }
+}
+
+@utility steel-surface {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-steel);
+  background-image: linear-gradient(var(--overlay-60), var(--overlay-60)), url("./assets/fond-acier.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+@utility steel-wash {
+  position: relative;
+  isolation: isolate;
+}
+
+.steel-wash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(oklch(1 0 0 / 88%), oklch(1 0 0 / 88%)), url("./assets/fond-acier.jpg");
+  background-position: center;
+  background-size: cover;
 }
