@@ -50,7 +50,7 @@ function Particuliers() {
                 height={768}
                 className="h-64 w-full object-cover md:h-80"
               />
-              <span className="pointer-events-none absolute inset-0 bg-[oklch(0.7364_0.0354_81.93/25%)]" />
+              <span className="pointer-events-none absolute inset-0 bg-sand/25" />
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <h1 className="text-2xl leading-snug tracking-tight text-primary-foreground drop-shadow-[0_1px_6px_oklch(0_0_0/45%)] md:text-4xl">
                   <span className="block">Des espaces pensés</span>

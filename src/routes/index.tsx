@@ -44,7 +44,7 @@ function Home() {
             height={768}
             className="h-[380px] w-full object-cover saturate-[0.55] md:h-[440px]"
           />
-          <span className="pointer-events-none absolute inset-0 bg-[oklch(0.7364_0.0354_81.93/25%)]" />
+          <span className="pointer-events-none absolute inset-0 bg-sand/25" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
             <Brackets>
               <div className="bg-background/70 px-10 py-6 backdrop-blur-[2px]">
@@ -97,7 +97,7 @@ function Home() {
       </section>
 
       {/* Méthode */}
-      <section className="mx-auto max-w-3xl px-6 pb-28 text-center">
+      <section className="steel-wash mx-auto max-w-5xl px-6 py-24 text-center">
         <h2 className="text-xl tracking-tight md:text-2xl">
           Chaque projet commence par une immersion.
         </h2>
@@ -282,7 +282,7 @@ function CategoryCard({
           height={512}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute inset-0 bg-[oklch(0_0_0/60%)] opacity-70 transition-opacity group-hover:opacity-50" />
+        <span className="absolute inset-0 bg-overlay opacity-70 transition-opacity group-hover:opacity-50" />
         <span className="absolute inset-0 flex items-center justify-center text-sm tracking-[0.2em] text-primary-foreground">
           {label}
         </span>
