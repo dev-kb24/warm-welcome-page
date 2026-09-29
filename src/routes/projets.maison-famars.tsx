@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { BeforeAfter } from "@/components/before-after";
-import { Brackets, Footer, Header } from "@/components/site";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Brackets } from "@/components/site";
 import entreeAvant from "@/assets/famars-entree-avant.jpg";
 import entreeApres from "@/assets/famars-entree-apres.jpg";
 import bleueAvant from "@/assets/famars-bleue-avant.jpg";

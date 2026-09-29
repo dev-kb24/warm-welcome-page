@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { Brackets, Footer, Header } from "@/components/site";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Brackets } from "@/components/site";
 import proHero from "@/assets/pro-hero.jpg";
 
 export const Route = createFileRoute("/professionnels")({
