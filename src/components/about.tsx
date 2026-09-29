@@ -19,7 +19,7 @@ export function About() {
           loading="lazy"
           width={382}
           height={384}
-          className="h-56 w-44 shrink-0 object-cover"
+          className="h-56 w-44 shrink-0 object-contain"
         />
         <div className="space-y-6 text-sm leading-relaxed text-ink-soft md:text-base">
           <p>
