@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import { Brackets, Footer, Header } from "@/components/site";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { Brackets } from "@/components/site";
 import partHero from "@/assets/part-hero.jpg";
 import famars1 from "@/assets/travaux-famars-1.jpg";
 import famars2 from "@/assets/travaux-famars-2.jpg";
