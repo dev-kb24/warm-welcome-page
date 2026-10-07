@@ -15,7 +15,9 @@ export function Header({ active }: { active?: string }) {
   const [currentActive, setCurrentActive] = useState(active);
 
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 8);
+    const update = () => {
+      setScrolled((current) => (current ? window.scrollY > 24 : window.scrollY > 80));
+    };
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);

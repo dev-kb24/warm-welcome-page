@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ParticuliersRouteImport } from './routes/particuliers'
 import { Route as ProfessionnelsRouteImport } from './routes/professionnels'
+import { Route as ProjetsCuisineProuvyRouteImport } from './routes/projets.cuisine-prouvy'
 import { Route as ProjetsMaisonFamarsRouteImport } from './routes/projets.maison-famars'
+import { Route as ProjetsStudioFamarsRouteImport } from './routes/projets.studio-famars'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,9 +31,19 @@ const ProfessionnelsRoute = ProfessionnelsRouteImport.update({
   path: '/professionnels',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjetsCuisineProuvyRoute = ProjetsCuisineProuvyRouteImport.update({
+  id: '/projets/cuisine-prouvy',
+  path: '/projets/cuisine-prouvy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjetsMaisonFamarsRoute = ProjetsMaisonFamarsRouteImport.update({
   id: '/projets/maison-famars',
   path: '/projets/maison-famars',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjetsStudioFamarsRoute = ProjetsStudioFamarsRouteImport.update({
+  id: '/projets/studio-famars',
+  path: '/projets/studio-famars',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -39,40 +51,61 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/cuisine-prouvy': typeof ProjetsCuisineProuvyRoute
   '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
+  '/projets/studio-famars': typeof ProjetsStudioFamarsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/cuisine-prouvy': typeof ProjetsCuisineProuvyRoute
   '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
+  '/projets/studio-famars': typeof ProjetsStudioFamarsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/particuliers': typeof ParticuliersRoute
   '/professionnels': typeof ProfessionnelsRoute
+  '/projets/cuisine-prouvy': typeof ProjetsCuisineProuvyRoute
   '/projets/maison-famars': typeof ProjetsMaisonFamarsRoute
+  '/projets/studio-famars': typeof ProjetsStudioFamarsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/particuliers' | '/professionnels' | '/projets/maison-famars'
+    | '/'
+    | '/particuliers'
+    | '/professionnels'
+    | '/projets/cuisine-prouvy'
+    | '/projets/maison-famars'
+    | '/projets/studio-famars'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/particuliers' | '/professionnels' | '/projets/maison-famars'
+  to:
+    | '/'
+    | '/particuliers'
+    | '/professionnels'
+    | '/projets/cuisine-prouvy'
+    | '/projets/maison-famars'
+    | '/projets/studio-famars'
   id:
     | '__root__'
     | '/'
     | '/particuliers'
     | '/professionnels'
+    | '/projets/cuisine-prouvy'
     | '/projets/maison-famars'
+    | '/projets/studio-famars'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ParticuliersRoute: typeof ParticuliersRoute
   ProfessionnelsRoute: typeof ProfessionnelsRoute
+  ProjetsCuisineProuvyRoute: typeof ProjetsCuisineProuvyRoute
   ProjetsMaisonFamarsRoute: typeof ProjetsMaisonFamarsRoute
+  ProjetsStudioFamarsRoute: typeof ProjetsStudioFamarsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -98,11 +131,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfessionnelsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projets/cuisine-prouvy': {
+      id: '/projets/cuisine-prouvy'
+      path: '/projets/cuisine-prouvy'
+      fullPath: '/projets/cuisine-prouvy'
+      preLoaderRoute: typeof ProjetsCuisineProuvyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projets/maison-famars': {
       id: '/projets/maison-famars'
       path: '/projets/maison-famars'
       fullPath: '/projets/maison-famars'
       preLoaderRoute: typeof ProjetsMaisonFamarsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projets/studio-famars': {
+      id: '/projets/studio-famars'
+      path: '/projets/studio-famars'
+      fullPath: '/projets/studio-famars'
+      preLoaderRoute: typeof ProjetsStudioFamarsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -112,7 +159,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ParticuliersRoute: ParticuliersRoute,
   ProfessionnelsRoute: ProfessionnelsRoute,
+  ProjetsCuisineProuvyRoute: ProjetsCuisineProuvyRoute,
   ProjetsMaisonFamarsRoute: ProjetsMaisonFamarsRoute,
+  ProjetsStudioFamarsRoute: ProjetsStudioFamarsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

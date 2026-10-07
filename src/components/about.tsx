@@ -2,7 +2,7 @@ import portrait from "@/assets/ms-portrait.jpg";
 
 export function About() {
   return (
-    <section id="a-propos" className="mx-auto max-w-4xl px-6 pb-24">
+    <section id="a-propos" className="mx-auto max-w-5xl px-6 pb-24">
       <div className="flex items-center gap-6">
         <h2 className="shrink-0 text-lg text-sand md:text-xl">À propos</h2>
         <span className="h-px flex-1 bg-border" />
