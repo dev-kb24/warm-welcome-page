@@ -9,7 +9,7 @@ export function Usages() {
     <section className="mx-auto max-w-5xl px-6 py-24 text-center">
       <h2 className="text-xl tracking-tight md:text-2xl">Des espaces pensés pour chaque usage</h2>
 
-      <div className="mt-16 flex flex-col items-center justify-center gap-14 sm:flex-row sm:gap-16">
+      <div className="mt-16 grid w-full gap-14 sm:grid-cols-2 sm:gap-16">
         <CategoryCard
           id="professionnels"
           src={catPro}
@@ -44,7 +44,7 @@ function CategoryCard({
 }) {
   const inner = (
     <Brackets>
-      <div className="relative h-40 w-72 overflow-hidden">
+      <div className="relative h-40 w-full overflow-hidden">
         <img
           src={src}
           alt={alt}

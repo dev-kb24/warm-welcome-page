@@ -2,7 +2,7 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-2xl px-6 text-center">
+    <section id="contact" className="mx-auto max-w-5xl px-6 text-center">
       <h2 className="text-xl tracking-tight md:text-2xl text-sand">Parlons de votre projet.</h2>
       <div className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-ink-soft">
         <p>Chaque projet mérite une réflexion précise.</p> 
